@@ -13,16 +13,16 @@ $default_config = array(
 	"email_subject" => "Unsubscribing",
 	"email_template" => "Hi,<br /><br />Someone unsubscribe from your list.<br /><br />Reason: {{reason}}<br /><br />{{message}}",
 
-	"form_reasons_label" => "I'm unsubscibing because:",
+	"form_reasons_label" => "I'm unsubscribing because:",
 	"form_message_label" => "My other reason is:",
 	"form_button_label" => "Send",
 	"form_button_loading_text" => "Loading...",
 
 	"reasons" => array(
-		"relevancy" => "Your emails are not relevant to me",
-		"frequency" => "Your emails are too frequent",
-		"error" => "I don't remember signing up for this",
-		"other" => "I've got another reason"
+		"Relevancy" => "Your emails are not relevant to me",
+		"Frequency" => "Your emails are too frequent",
+		"Error" => "I don't remember signing up for this",
+		"Other" => "I've got another reason"
 	),
 
 	"stats_secret" => "secret"
