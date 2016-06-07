@@ -116,7 +116,7 @@ if (!empty($_POST['reason'])
 							<textarea class="form-control" name="message" rows="5"></textarea>
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary"><?= $config['form_button_label'] ?></button>
+							<button type="submit" class="btn btn-primary" data-loading-text="<?= $config['form_button_loading_text'] ?>" autocomplete="off"><?= $config['form_button_label'] ?></button>
 						</div>
 					</form>
 				</div>
@@ -149,16 +149,20 @@ if (!empty($_POST['reason'])
 		</div>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script>
 		$(function() {
 			$unsubscribeForm = $("#unsubscribe-form");
+			$submitButton = $("[type=submit]", $unsubscribeForm);
 			$reasonField = $("#unsubscribe-field-reason");
 			$unsubscribeResult = $("#unsubscribe-result");
 			$unsubscribeForm.ajaxForm({
 				type: "POST",
 				beforeSubmit: function(formData, jqForm) {
 					var form = jqForm[0];
+					$submitButton.button('loading');
 					if (!form.reason.value) {
+						$submitButton.button('reset');
 						$reasonField.addClass("has-error");
 						return false;
 					} else {
@@ -167,6 +171,7 @@ if (!empty($_POST['reason'])
 				},
 				success: function(response, status, xhr, $form) {
 					var data = JSON.parse(response);
+					$submitButton.button('reset');
 					$(".form-group", $form).removeClass("has-error");
 					var message = data.message || "Désolé, nous rencontrons un problème.";
 					$unsubscribeResult.html(message);

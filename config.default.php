@@ -16,6 +16,7 @@ $default_config = array(
 	"form_reasons_label" => "I'm unsubscibing because:",
 	"form_message_label" => "My other reason is:",
 	"form_button_label" => "Send",
+	"form_button_loading_text" => "Loading...",
 
 	"reasons" => array(
 		"relevancy" => "Your emails are not relevant to me",
