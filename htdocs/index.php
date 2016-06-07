@@ -1,7 +1,15 @@
 <?php
-include __DIR__.'/../config.php';
-$statsfile = __DIR__.'/../unsubscribe.json';
-$logsfile = __DIR__.'/../unsubscribe.log';
+include __DIR__ . '/../config.default.php';
+
+if (file_exists(__DIR__ . '/../config.custom.php')) {
+	include __DIR__ . '/../config.custom.php';
+	$config = array_merge($default_config, $custom_config);
+} else {
+	$config =& $default_config;
+}
+
+$statsfile = __DIR__ . '/../unsubscribe.json';
+$logsfile = __DIR__ . '/../unsubscribe.log';
 
 if (file_exists($statsfile)) {
 	$json = file_get_contents($statsfile);
@@ -134,16 +142,13 @@ if (!empty($_POST['reason'])
 				</div>
 			</div>
 		</div>
-
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
 		<script>
 		$(function() {
-
 			$unsubscribeForm = $("#unsubscribe-form");
 			$reasonField = $("#unsubscribe-field-reason");
 			$unsubscribeResult = $("#unsubscribe-result");
-
 			$unsubscribeForm.ajaxForm({
 				type: "POST",
 				beforeSubmit: function(formData, jqForm) {
@@ -172,7 +177,6 @@ if (!empty($_POST['reason'])
 					});
 				}
 			});
-
 		});
 		</script>
 	</body>
