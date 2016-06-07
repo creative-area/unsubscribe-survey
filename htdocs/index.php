@@ -46,6 +46,7 @@ if (!empty($_POST['reason'])
 	$write_log = fputcsv($logger, array(date(DATE_RFC2822), $reason, str_replace(array("\n", "\t", "\r"), ' ', $message)));
 	fclose($logger);
 
+	$send_mail = false;
 	if (!empty($config['email_to'])) {
 		$email_body = str_replace(array('{{reason}}', '{{message}}'), array($config['reasons'][$reason], nl2br($message)), $config['email_template']);
 		$email_headers = 'MIME-Version: 1.0' . "\r\n";
