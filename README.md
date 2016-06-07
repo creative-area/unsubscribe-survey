@@ -2,6 +2,8 @@
 
 > Exit interview to capture the reasons why subscribers are leaving after they unsubscribe
 
+![screenshot](screenshot.png?raw=true)
+
 ## Features
 
 - Fully customizable (texts, questions, logo, ...)
