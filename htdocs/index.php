@@ -76,6 +76,9 @@ if (!empty($_POST['reason'])
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.css">
 		<style>
+		.logo {
+			padding-bottom: 20px;
+		}
 		.ct-chart-pie .ct-label {
 			font-size: .95em;
 			fill: rgba(0,0,0,.5);
@@ -86,14 +89,16 @@ if (!empty($_POST['reason'])
 	<body>
 		<div class="container">
 			<div class="row">
-				<div>
+				<div class="col-sm-12 page-header">
+					<?php if (!empty($config['logo_path'])) { ?>
+					<img src="<?= $config['logo_path'] ?>" class="logo img-responsive" alt="">
+					<?php } ?>
 					<h1><?= $config['page_title'] ?></h1>
 					<?php if (!empty($config['page_description'])) { ?>
 					<p class="lead"><?= $config['page_description'] ?></p>
-					<?php } ?>
-					<hr>
 				</div>
 			</div>
+			<?php } ?>
 			<div class="row">
 				<div class="col-md-6">
 					<div id="unsubscribe-result" class="alert" style="display: none;"></div>

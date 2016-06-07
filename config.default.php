@@ -2,6 +2,8 @@
 
 $default_config = array(
 
+	"logo_path" => "",
+
 	"page_title" => "We're sorry to see you go.",
 	"page_description" => "You've already been unsubscribed from our mailing list, however before you go, we'd love to know why you're leaving us.",
 
