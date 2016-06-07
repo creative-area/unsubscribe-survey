@@ -8,8 +8,8 @@ if (file_exists(__DIR__ . '/../config.custom.php')) {
 	$config =& $default_config;
 }
 
-$statsfile = __DIR__ . '/../unsubscribe.json';
-$logsfile = __DIR__ . '/../unsubscribe.log';
+$statsfile = __DIR__ . '/../data/unsubscribe.json';
+$logsfile = __DIR__ . '/../data/unsubscribe.log';
 
 if (file_exists($statsfile)) {
 	$json = file_get_contents($statsfile);
@@ -23,7 +23,7 @@ if (file_exists($statsfile)) {
 }
 
 $display_stats = false;
-if (isset($_GET['stats']) && $_GET['stats'] === $config['stats_token']) {
+if (isset($_GET['stats']) && $_GET['stats'] === $config['stats_secret']) {
 	$display_stats = true;
 }
 

@@ -22,6 +22,6 @@ $default_config = array(
 		"other" => "I've got another reason"
 	),
 
-	"stats_token" => "show"
+	"stats_secret" => "secret"
 
 );
