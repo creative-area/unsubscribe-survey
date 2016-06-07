@@ -74,7 +74,7 @@ if (!empty($_POST['reason'])
 		<?php if (!empty($config['page_description'])) { ?>
 		<meta name="description" content="<?= $config['page_description'] ?>">
 		<?php } ?>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.css">
 		<style>
 		.logo {
